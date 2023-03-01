@@ -1,0 +1,5 @@
+1. Crie uma calculadora com as operações +, -, *, /, **, onde as operações são realizadas via callback.
+2. Utilizando as funções da calculadora, resolva a equação (3*x)**2+(2*x)-5, permitindo informar o X a cada interação;
+3. Crie uma promise que faça um fetch na urlhttps://catfact.ninja/facts e mostre apenas os campos data.fact em uma lista não ordenada.
+4. Carregue de forma síncrona o opening_crawl dos seis primeiros filmes da série Star Wars através da API https://swapi.dev/api/films usando async/await.
+5. Converta a função anterior para carregar os filmes paralelamente, usando async/await e Promise.all().
