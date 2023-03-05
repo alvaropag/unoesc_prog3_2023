@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade Lambda</title>
+</head>
+<body>
+  <h3>Atividade Lambda</h1>
+  <ol>
+    <li>Crie uma calculadora com as operações +, -, *, /, **, onde as operações são realizadas via callback.</li>
+    <li>Utilizando as funções da calculadora, resolva a equação (3*x)**2+(2*x)-5, permitindo informar o X a cada interação</li>
+    <li>Crie uma promise que faça um fetch na url https://catfact.ninja/facts e mostre apenas os campos data.fact em uma lista não ordenada.</li>
+    <li>Carregue de forma síncrona o opening_crawl dos seis primeiros filmes da série Star Wars através da API https://swapi.dev/api/films usando async/await.</li>
+    <li>Converta a função anterior para carregar os filmes paralelamente, usando async/await e Promise.all().</li>
+  </ol>
+  <script>
+    const soma = (a, b) => a + b;
+    const subtracao = (a, b) => a - b;
+    const multiplicacao = (a, b) => a * b;
+    const divisao = (a, b) => a / b;
+    const potencia = (a, b) => a ** b;
+    const calculadora = (a, b, operacao) => operacao(a, b);
+    console.log('calculadora');
+    console.group();
+    console.log('calc soma', calculadora(2, 3, soma));
+    console.log('calc subtração', calculadora(2, 3, subtracao));
+    console.log('calc multiplicação', calculadora(2, 3, multiplicacao));
+    console.log('calc divisao', calculadora(2, 3, divisao));
+    console.log('calc potencia', calculadora(2, 3, potencia));
+    console.groupEnd();
+    
+    const equacao = (x) => (3*x)**2+(2*x)-5;
+    let y = prompt('Digite o valor de X: ');
+    console.log('equacao', equacao(y));
+
+    const getCatFact = async () => {
+      new Promise ((resolve, reject) => {
+        fetch('https://catfact.ninja/facts')
+        .then(response => response.json())
+        .then(data => {
+          let catFact = data.data.map((fact) => {
+            return fact.fact;
+          });
+          console.log('catFact', catFact);
+          return resolve(catFact);
+        })
+        .catch(error => {
+          return reject(error);
+        })
+      });
+    }
+    console.log(getCatFact());
+    const getStarWarsFilms = async () => {
+      console.log('entrou')
+      const films = [];
+      for (let i = 1; i <= 6; i++) {
+        const response = await fetch(`https://swapi.dev/api/films/${i}`);
+        const data = await response.json();
+        console.log(data)
+        films.push(data);
+      }
+      return films;
+    }
+    console.log(getStarWarsFilms());
+
+    const getStarWarsFilms = async () => {
+      const films = [];
+      for (let i = 1; i <= 6; i++) {
+        films.push(fetch(`https://swapi.dev/api/films/${i}`));
+      }
+      
+      const responses = await Promise.all(films);
+      const data = await Promise.all(responses.map(response => response.json()));
+      console.log('filme ${i}', data);
+      return data;
+    }
+    console.log(getStarWarsFilms());
+    </script>
+</body>
+</html>
