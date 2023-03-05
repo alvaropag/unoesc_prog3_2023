@@ -1,0 +1,15 @@
+{
+  "name": "aula-2-exer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "aula-2-exer-1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-fetch": "^3.1.5",
+    "node-fetch": "^3.3.0"
+  }
+}
