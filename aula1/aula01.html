@@ -1,0 +1,101 @@
+//pagina inicial do site
+<html>
+<head>
+<meta charset="utf-8">
+<title>aula 1</title>
+</head>
+<body>
+    <script>
+        //função fatorial em javascript
+function factorial(num) {
+    let result = 1;
+    for (let i = 1; i <= num; i++) {
+      result *= i;
+    }
+    return result;
+  }
+
+    console.log(factorial(3));
+
+
+// Path: fatorial.js recursivo
+//function factorial(num) {
+//    if (num === 0) {
+//        return 1;
+//    }
+//    return num * factorial(num - 1);
+//}
+
+//console.log(factorial(5));
+
+//função que entra com altura e sexo de 5 pessoas e retorna quantas são mulheres e quantos são homens, a maior altura e se é homem ou mulher
+
+function analyzePeople(people) {
+    let maleCount = 0;
+    let femaleCount = 0;
+    let tallestPerson = { height: 0, gender: "" };
+    for (let i = 0; i < people.length; i++) {
+        if (people[i].gender === "male") {
+            maleCount++;
+        } else {
+            femaleCount++;
+        }
+        if (people[i].height > tallestPerson.height) {
+            tallestPerson = people[i];
+        }
+    }
+    return {
+        maleCount: maleCount,
+        femaleCount: femaleCount,
+        tallestPerson: tallestPerson
+    };
+}
+
+let people = [
+    { height: 170, gender: "male" },
+    { height: 160, gender: "female" },
+    { height: 165, gender: "male" },
+    { height: 170, gender: "female" },
+    { height: 175, gender: "male" }
+];
+
+let result = analyzePeople(people);
+console.log(result);
+
+//função que retorna um array com a quantidade de números primos até o número passado como parâmetro
+function primos(quantidade) {
+    let numeros = [];
+    let numero = 2;
+    while (numeros.length < quantidade) {
+        let primo = true;
+        for (let i = 2; i < numero; i++) {
+            if (numero % i === 0) {
+                primo = false;
+                break;
+            }
+        }
+        if (primo) {
+            numeros.push(numero);
+        }
+        numero++;
+    }
+    return numeros;
+}
+console.log(primos(4));
+//função que recebe 3 lados de um triangulo e retorna o tipo de triangulo
+function tipoTriangulo(a, b, c) {
+    if (a == b && b == c) {
+        return "Equilátero";
+    } else if (a == b || b == c || a == c) {
+        return "Isósceles";
+    } else {
+        return "Escaleno";
+    }
+}
+
+console.log(tipoTriangulo(3, 5, 9));
+    </script>
+<h1>aula 1</h1>
+
+</body>
+</html>

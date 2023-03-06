@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+<body>
+<h3>Atividade js lambda</h3>
+
+  <script>
+    console.log('calculadora call back');
+    const callback = (a, b, operacao) => operacao(a, b);
+    console.groupEnd();
+    const soma = (a, b) => a + b;
+    console.log(' soma', callback(2, 3, soma));
+    const subtracao = (a, b) => a - b;
+    console.log('subtração', callback(2, 3, subtracao));
+    const multiplicacao = (a, b) => a * b;
+    console.log('multiplicação', callback(2, 3, multiplicacao));
+    const divisao = (a, b) => a / b;
+    console.log('divisao', callback(2, 3, divisao));
+    const potencia = (a, b) => a ** b;
+    console.log('potencia', callback(2, 3, potencia));
+
+    //equação valor X
+    const resultado = (x) => Math.pow(3*x, 2) + 2*x - 5;
+    const x = Number(prompt("Digite o valor de x:"));
+    console.log(`O resultado é: ${resultado(x)}`);
+
+//catfact
+    const getCatFact = async () => {
+      try {
+        const response = await fetch('https://catfact.ninja/facts');
+        const data = await response.json();
+        const catFact = data.data.map(fact => fact.fact);
+        console.log('catFact', catFact);
+        return catFact;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    console.log('getCatFact', getCatFact());
+
+    //star wars
+    const getStarWarsFilms = async () => {
+      const films = await Promise.all(Array.from({ length: 6 }, (_, i) => fetch(`https://swapi.dev/api/films/${i + 1}`).then(response => response.json())));
+      return films;
+    }
+
+    getStarWarsFilms().then(films => console.log(films)).catch(error => console.error(error));
+//star wars await
+    const getStarWarsFilmsAwait = async () => {
+      const promises = [];
+      for (let i = 1; i <= 6; i++) {
+        promises.push(fetch(`https://swapi.dev/api/films/${i}`).then(response => response.json()));
+      }
+      const films = await Promise.all(promises);
+      return films;
+    };
+
+    getStarWarsFilmsAwait().then(films => console.log(films)).catch(error => console.error(error));
+
+  </script>
+</body>
+</html>
