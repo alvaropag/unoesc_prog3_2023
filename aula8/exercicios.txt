@@ -1,0 +1,30 @@
+Os exercícios utilizam os dados
+
+//VEICULOS
+
+{id: 1, nome: 'Escola Regional de Banco de Dados', sigla: 'ERBD', evento: {ano: 2005, tipo: 'conferência' }}
+
+{id: 2, nome: 'Simpósio Brasileiro de Banco de Dados', sigla: 'SBBD', evento: {ano: 1986, tipo: 'conferência'}}
+
+[{id: 3, nome: 'ACM Special Interest Group on Management of Data', sigla: 'SIGMOD', periodico: {issn: '0163-5808'}},
+
+{id: 4, nome: 'The VLDB Journal', sigla: 'VLDB', periodico: {issn: '1066-8888'}}]
+
+
+
+//CURRICULOS
+
+{id: 1, nome: 'Claudia Bauzer Medeiros', complemento: {orcid: '0000-0003-1908-4753' , titulacao: 'Doutorado'}, artigo: [{doi: '10.1145/181550.181566', titulo:'Databases for GIS', autores: ['Claudia Bauzer Medeiros', 'Fatima Pires'], veiculo:3}, {autores: ['Rodrigo Dias Arruda Senra', 'Claudia Bauser Medeiros'], titulo: 'SciFrame: a conceptual framework to describe data sharing in e-Science',ano: 2009}], corpo_editorial: [{data_inicio: 2017, veiculo: 6}]}
+
+db.curriculo.insert([{id:2, nome: 'José Palazzo', complemento: {titulacao: 'Doutorado'}, artigo: [{titulo:'VRRC: Uma Ferramenta Web para Visualização e Recomendação em Redes de Coautoria', autores: ['Eduardo M. Barbosa', 'Mirella Moura Moro', 'Giseli Rabello Lopes' ,'José Moreira de Oliveira'], veiculo:3}]},
+
+{id: 3, nome: 'Ronaldo dos Santos Mello', complemento: {orcid: '0000-0003-4262-5474' , titulacao: 'Doutorado'}, artigo: [{titulo:'A Process for Inference of Columnar NoSQL Database Schemas', autores:['MELLO, R. S.', 'FROZZA, ANGELO A.', 'Defreyn, E. D. .'], veiculo: 2},{titulo:'Um Levantamento sobre Sistemas de Gerenciamento de Bancos de Dados NoSQL Multimodelo', autores: ['AQUINO, AMANDA CHRISTOVAL DA VEIGA DE','MELLO, RONALDO DOS SANTOS'], veiculo:1}, {titulo:'Uma Análise de Soluções NewSQL', autores: ['MELLO, RONALDO SANTOS', 'Schreiner, G.', 'FROZZA, Ângelo Augusto', 'KNOB, R']}]}])
+
+
+ Exercícios
+●  Apresentar o nome de todas as pessoas que possuem um currículo.
+●  Listar os artigos do Prof. José Palazzo.
+●  Liste o nome e a sigla de todos os eventos cadastrados.
+●  Apresente o nome do evento cuja sigla é SBBD.
+●  Liste o nome das pessoas que participam do corpo editorial de um evento a partir de ‘2010’.
+●  Liste os autores que publicaram no ERBD.
