@@ -1,0 +1,24 @@
+Crie uma aplicação Express.js que permita que o usuário execute as seguintes ações:
+– Obter uma lista de todos os contatos na lista.
+– Adicionar um novo contato à lista.
+– Atualizar as informações de um contato existente na lista.
+– Excluir um contato da lista.
+– Encontrar os contatos com o mesmo e-mail
+– Utilize o mongodb para salvar os contatos
+
+
+Estrutura do json
+[
+    {
+        "_id": "HASH_GERADO_PELO_MONGO",
+        "nome": "João da Silva",
+        "email": "joao@gmail.com",
+        "telefone": "(11) 99999-9999"
+    },
+    {
+        "_id": "HASH_GERADO_PELO_MONGO",
+        "nome": "Maria Souza",
+        "email": "maria@hotmail.com",
+        "telefone": "(21) 88888-8888"
+    }
+]
